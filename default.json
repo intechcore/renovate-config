@@ -3,5 +3,14 @@
   "description": "Renovate baseline for the public intechcore repositories. The common part lives in grigoriev/renovate-config; rules for intechcore only go here.",
   "extends": [
     "github>grigoriev/renovate-config"
+  ],
+  "packageRules": [
+    {
+      "description": "The JDK in the workflows follows maven.compiler.release and the Java runtime of the product, not the newest release. Moving the JDK is a decision, not an automatic update, and with automerge on it would otherwise land on its own.",
+      "matchDepNames": [
+        "java-jdk"
+      ],
+      "enabled": false
+    }
   ]
 }
